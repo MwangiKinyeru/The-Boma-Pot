@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Results - The Boma Pot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #28a745;
+            --card-bg: rgba(255, 255, 255, 0.98);
+            --ingredients-color: #4a6fa5;
+            --instructions-color: #8b4513;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: 
+                linear-gradient(rgba(245, 245, 245, 0.9), rgba(245, 245, 245, 0.9)),
+                url('../images/results page image.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .results-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .recipe-card {
+            background: lightgrey;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            border: none;
+        }
+
+        .recipe-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+        }
+
+        .recipe-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0;
+            color: white;
+        }
+
+        .recipe-content {
+            padding: 1.2rem;
+        }
+
+        .section-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .ingredients-title {
+            color: var(--ingredients-color);
+        }
+
+        .instructions-title {
+            color: var(--instructions-color);
+        }
+
+        .ingredients-list, .instructions-list {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            white-space: pre-line;
+            padding-left: 0.3rem;
+        }
+
+        .ingredients-list {
+            color: var(--ingredients-color);
+        }
+
+        .instructions-list {
+            color: var(--instructions-color);
+        }
+
+        .back-btn {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.7rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .results-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Recommended Recipes</h1>
+
+        <div class="results-container">
+            {% if recipes %}
+                {% for recipe in recipes %}
+                    <div class="recipe-card">
+                        <div class="recipe-header">
+                            <h2 class="recipe-title">{{ recipe.Title }}</h2>
+                        </div>
+                        <div class="recipe-content">
+                            <div class="section">
+                                <div class="section-title ingredients-title">
+                                    <i class="fas fa-carrot"></i>
+                                    <span>Ingredients</span>
+                                </div>
+                                <div class="ingredients-list">{{ recipe.Ingredients }}</div>
+                            </div>
+                            
+                            <div class="section">
+                                <div class="section-title instructions-title">
+                                    <i class="fas fa-list-ol"></i>
+                                    <span>Instructions</span>
+                                </div>
+                                <div class="instructions-list">{{ recipe.Instructions }}</div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="no-results">
+                    <p>No recipes found. Try different ingredients.</p>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="back-btn">
+            <a href="/" class="btn">
+                <i class="fas fa-arrow-left"></i>
+                Back to Search
+            </a>
+        </div>
+    </div>
+</body>
+</html>
