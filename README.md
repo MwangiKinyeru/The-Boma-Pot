@@ -85,8 +85,20 @@ The dataset is CSV file, it contains rows 142 and 16 columns respectively as fol
 In order for a user to get recommended recipes, we need to save some code such as the recommend recipe function, combined_df, the tf_idf vectorizer as .py and pickle files in order for a user to get feedback whenever they input data.
 
 So the TF-IDF Vectorizer and the combined dataframe will be saved as pickle files while the combined_df saved as .py file to make it easy to adjust here and there.
+Create a simple front end web application which is user friendly
 
-![png](13.PNG)
+#### visualization of the web application
+<p align="center">
+  <img src="https://github.com/MwangiKinyeru/The-Boma-Pot/blob/main/images/home%20preview.PNG" 
+  width="45%" />
+  <img src="https://github.com/MwangiKinyeru/The-Boma-Pot/blob/main/images/results%20preview.PNG" 
+  width="45%" />
+</p>
+
+### Future Improvements
+intergrate a user friendly chatbot to this web application
+
+>>>> Deployment link
 
 <br>
 Author by:
