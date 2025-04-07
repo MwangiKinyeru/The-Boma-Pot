@@ -98,7 +98,7 @@ Create a simple front end web application which is user friendly
 ### Future Improvements
 intergrate a user friendly chatbot to this web application
 
->>>> Deployment link
+>>>> Deployment link: [web_link](https://the-boma-pot.onrender.com)
 
 <br>
 Author by:
